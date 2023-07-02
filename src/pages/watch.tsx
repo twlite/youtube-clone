@@ -3,7 +3,7 @@ import VideoSearchCard from '@/components/page/VideoSearchCard';
 import { IVideoInfo, VideoJSON } from '@/components/page/common';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { interFont } from '@/lib/constants';
-import { cn, fetcher, formatNumber } from '@/lib/utils';
+import { cn, fetcher, formatNumber, acronym } from '@/lib/utils';
 import { ThumbsDown, ThumbsUp } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -37,7 +37,7 @@ export default function Watch() {
               className="aspect-video border-none w-full"
             />
             <div>
-              <div className="py-2 flex justify-between items-center">
+              <div className="py-2 flex justify-between items-center flex-col lg:flex-row">
                 <div>
                   <h1 className="text-xl font-semibold">{data.video.title}</h1>
                 </div>
@@ -54,7 +54,7 @@ export default function Watch() {
               </div>
               <div className="flex gap-5 items-start">
                 <Avatar>
-                  <AvatarFallback>{data.video.channel.name}</AvatarFallback>
+                  <AvatarFallback>{acronym(data.video.channel.name)}</AvatarFallback>
                   <AvatarImage src={data.video.channel.icon} />
                 </Avatar>
                 <div>
