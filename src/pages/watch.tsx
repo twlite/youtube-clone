@@ -35,6 +35,7 @@ export default function Watch() {
             <iframe
               src={`https://www.youtube.com/embed/${data.video.id}?autoplay=1&enablejsapi=1`}
               className="aspect-video border-none w-full"
+              allowFullScreen
             />
             <div>
               <div className="py-2 flex justify-between items-center">
@@ -69,8 +70,10 @@ export default function Watch() {
                   <span>{data.video.views.toLocaleString()} views</span>
                   <span>{data.video.uploadedAt}</span>
                 </div>
-                <div className='overflow-auto'>
-                  <pre className={cn(interFont.className, 'break-words text-sm')}>
+                <div className="overflow-auto">
+                  <pre
+                    className={cn(interFont.className, 'break-words text-sm')}
+                  >
                     {data.video.description}
                   </pre>
                 </div>
@@ -78,11 +81,16 @@ export default function Watch() {
             </div>
           </div>
           <div className="flex flex-col gap-3">
+            <h1 className="text-sm font-semibold">Related Videos</h1>
             {data?.related.map((video) => (
               <Link href={`/watch?v=${video.id}`} key={video.id}>
                 <VideoSearchCard key={video.id} video={video} small />
               </Link>
-            ))}
+            )) || (
+              <p className="text-xs text-muted-foreground">
+                No data available.
+              </p>
+            )}
           </div>
         </div>
       </main>
