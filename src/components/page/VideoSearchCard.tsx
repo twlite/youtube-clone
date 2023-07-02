@@ -17,7 +17,7 @@ export default function VideoSearchCard({ video }: IProps) {
           height={200}
           className="rounded-xl"
         />
-        <span className="absolute bottom-[5px] right-[5px] bg-gray-900 text-primary-foreground text-sm px-1 rounded-sm">
+        <span className="absolute bottom-[5px] right-[5px] bg-gray-900 text-gray-50 text-sm px-1 rounded-sm">
           {video.duration_formatted}
         </span>
       </div>
