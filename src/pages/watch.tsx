@@ -3,7 +3,7 @@ import VideoSearchCard from '@/components/page/VideoSearchCard';
 import { IVideoInfo, VideoJSON } from '@/components/page/common';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { interFont } from '@/lib/constants';
-import { fetcher, formatNumber } from '@/lib/utils';
+import { cn, fetcher, formatNumber } from '@/lib/utils';
 import { ThumbsDown, ThumbsUp } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -30,7 +30,7 @@ export default function Watch() {
     <>
       <Nav />
       <main className="px-6">
-        <div className="flex justify-between gap-4 my-4">
+        <div className="flex flex-col lg:flex-row justify-between gap-4 my-4">
           <div className="flex-1">
             <iframe
               src={`https://www.youtube.com/embed/${data.video.id}?autoplay=1&enablejsapi=1`}
@@ -42,13 +42,13 @@ export default function Watch() {
                   <h1 className="text-xl font-semibold">{data.video.title}</h1>
                 </div>
                 <div className="flex gap-2 items-center bg-secondary rounded-full p-3">
-                  <div className='flex items-center gap-2 border-r dark:border-white/60 pr-4 cursor-pointer select-none'>
-                    <ThumbsUp className='h-5 w-5' />
+                  <div className="flex items-center gap-2 border-r dark:border-white/60 pr-4 cursor-pointer select-none">
+                    <ThumbsUp className="h-5 w-5" />
                     <span>{formatNumber(data.video.ratings.likes)}</span>
                   </div>
 
                   <div>
-                    <ThumbsDown className='h-5 w-5 cursor-pointer select-none' />
+                    <ThumbsDown className="h-5 w-5 cursor-pointer select-none" />
                   </div>
                 </div>
               </div>
@@ -69,8 +69,8 @@ export default function Watch() {
                   <span>{data.video.views.toLocaleString()} views</span>
                   <span>{data.video.uploadedAt}</span>
                 </div>
-                <div>
-                  <pre className={interFont.className}>
+                <div className='overflow-auto'>
+                  <pre className={cn(interFont.className, 'break-words text-sm')}>
                     {data.video.description}
                   </pre>
                 </div>

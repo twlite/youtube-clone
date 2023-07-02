@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <Nav />
       <main className="container">
-        <div className="grid grid-cols-4 grid-flow-row gap-5 my-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-flow-row gap-5 my-5">
           {videos!.map((video) => {
             return (
               <Link key={video.id} href={`/watch?v=${video.id}`}>
