@@ -9,7 +9,7 @@ interface IProps {
 
 export default function VideoSearchCard({ video, small }: IProps) {
   return (
-    <div className="flex items-start w-full gap-3">
+    <div className="flex items-start flex-col lg:flex-row w-full gap-3">
       <div className="relative">
         <Image
           src={video.thumbnail.url}
