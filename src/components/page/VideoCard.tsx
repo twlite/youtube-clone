@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { formatNumber, shorten } from "@/lib/utils";
 import { VideoJSON } from "./common";
 
@@ -10,7 +9,7 @@ export default function VideoCard({ video }: IProps) {
   return (
     <div>
       <div className="relative">
-        <Image
+        <img
           src={video.thumbnail.url}
           alt={video.id}
           width={360}
