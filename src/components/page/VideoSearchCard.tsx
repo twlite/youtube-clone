@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { formatNumber, shorten } from '@/lib/utils';
 import { VideoJSON } from './common';
 
@@ -11,7 +10,7 @@ export default function VideoSearchCard({ video, small }: IProps) {
   return (
     <div className="flex items-start flex-col lg:flex-row w-full gap-3">
       <div className="relative">
-        <Image
+        <img
           src={video.thumbnail.url}
           alt={video.id}
           width={small ? 250 : 360}
